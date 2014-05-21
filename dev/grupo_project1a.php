@@ -1,4 +1,4 @@
-<? include 'includes/grupo_declare.php'; ?>
+<?php include 'includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -173,26 +173,26 @@ $(function() {
 </head>
 <body>
 	<header>
-		<? include 'includes/grupo_header.php'; ?>
+		<?php include 'includes/grupo_header.php'; ?>
 	</header>
 	
-	<? $project = $_GET['project'];?>
+	<?php $project = $_GET['project'];?>
 	<section class="content-container">
 		<div class="content-area">
         	<div class="project_contentArea">
             	<div class="panarama_left">
 			<div class="description">
-				<?
+				<?php
 				$projectDescription = mysql_query("select Description from Grupo_Project_Description where ProjectID = $project");
 					while ($descrip = mysql_fetch_array($projectDescription))
 						$projDes = $descrip[0];
 						?>
-			    <h1><?=$projTitle;?></h1>
-			    <h3><?=$projDes;?></h3>
+			    <h1><?php echo $projTitle;?></h1>
+			    <h3><?php echo $projDes;?></h3>
 			</div>
             <div id="heroImage">
 				<div id="slideshow">
-					<?
+					<?php
 					$projectInfo = mysql_query("select ProjectTitle,ProjectCategory,ProjectLocation from Grupo_Project_Index where ProjectID = $project");
 						while ($picInfo = mysql_fetch_array($projectInfo))
 						{
@@ -207,8 +207,8 @@ $(function() {
 						{
 							$imgLoc = $projLoc.$picLoc[0];
 					?>
-					<img src="includes/thumbnail.php?pic=..<?=$imgLoc;?>&ht=253&wd=594" alt="" class="<? if($counter==0)echo 'active';?>"  />
-				    <?					$counter++;
+					<img src="includes/thumbnail.php?pic=..<?php echo $imgLoc;?>&ht=253&wd=594" alt="" class="<?php if($counter==0)echo 'active';?>"  />
+				    <?php					$counter++;
 								}
 							?>
 							
@@ -217,13 +217,13 @@ $(function() {
 				
 			</div>
 			<form>
-				<input type="hidden" id="info" value="<?=$imgLoc;?>"/>
+				<input type="hidden" id="info" value="<?php echo $imgLoc;?>"/>
 			</form>
 			
 		</div>
 				
                 <div class="media right">
-			<?
+			<?php
 			$otherMedia = mysql_query("select Location,MediaTitle from Grupo_Project_OtherMedia where ProjectID = $project");
 				while ($mediaInfo = mysql_fetch_array($otherMedia))
 				{
@@ -232,11 +232,11 @@ $(function() {
 			?>	
 				<div class="mediaButton">
 					<form>
-					<input type="hidden" value="<?=$mediaLoc;?>"/>
+					<input type="hidden" value="<?php echo $mediaLoc;?>"/>
 					</form>
-					<img src="includes/thumbnail.php?pic=..<?=$mediaLoc;?>&ht=200&wd=280" alt="" class="<? if($counter==0)echo 'active';?>"  />
+					<img src="includes/thumbnail.php?pic=..<?php echo $mediaLoc;?>&ht=200&wd=280" alt="" class="<?php if($counter==0)echo 'active';?>"  />
 				</div>
-			<?	
+			<?php
 				}
 			?>
                 	
@@ -245,8 +245,8 @@ $(function() {
                 
                 <ul class="breadcrumb">
                 	<li>Portfolio&gt;</li>
-                    <li><?=$projCat;?>&gt;</li>
-                    <li><?=$projTitle;?></li>
+                    <li><?php echo $projCat;?>&gt;</li>
+                    <li><?php echo $projTitle;?></li>
                 </ul>
             </div>
 		</div>

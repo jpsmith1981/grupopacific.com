@@ -1,4 +1,4 @@
-<? include 'includes/grupo_declare.php'; ?>
+<?php include 'includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,7 @@
 </head>
 <body>
 	<header>
-		<? include 'includes/grupo_header.php'; ?>
+		<?php include 'includes/grupo_header.php'; ?>
 	</header>
 	
 	
@@ -44,8 +44,8 @@ With over 25 years of experience in the industry, the team at Grupo Pacific stan
 	</section>
     
      <div id="spnCloudHolder">
-	<? include 'includes/populateslider.php'; ?>
-	<? include 'includes/populateslider.php'; ?>
+	<?php include 'includes/populateslider.php'; ?>
+	<?php include 'includes/populateslider.php'; ?>
 		
    </div>
 	

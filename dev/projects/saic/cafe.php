@@ -1,4 +1,4 @@
-<? include '../includes/grupo_declare.php'; ?>
+<?php include '../includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -123,18 +123,18 @@
 </head>
 <body>
 	<header>
-		<? include '../includes/grupo_header.php'; ?>
+		<?php include '../includes/grupo_header.php'; ?>
 	</header>
 	
-	<? $project = $_GET['project'];?>
+	<?php $project = $_GET['project'];?>
 	<section class="content-container">
 		<div class="content-area">
 			<div class="project_contentArea">
 				
 				<div class="description">
 					
-				    <h1>SAIC  - Café Remodel </h1>
-				    <h3>Science Applications International Corporation, SAIC, is a leading provider of scientific, engineering, systems integration and technical services and solutions.  SAIC has campuses worldwide with more than 41,000 employees.  As SAIC’s Campus Point facilities in San Diego continued to grow, a renovation and enlargement of their existing employee café was needed.  Efficient design layouts were a key component to enable large groups of employees to utilize and process through the café at the same time.  Interior and exterior dining facility finishes were selected that were light, bright and provided an inviting daytime retreat.</h3>
+				    <h1>SAIC  - Cafï¿½ Remodel </h1>
+				    <h3>Science Applications International Corporation, SAIC, is a leading provider of scientific, engineering, systems integration and technical services and solutions.  SAIC has campuses worldwide with more than 41,000 employees.  As SAICï¿½s Campus Point facilities in San Diego continued to grow, a renovation and enlargement of their existing employee cafï¿½ was needed.  Efficient design layouts were a key component to enable large groups of employees to utilize and process through the cafï¿½ at the same time.  Interior and exterior dining facility finishes were selected that were light, bright and provided an inviting daytime retreat.</h3>
 				</div>
 				
 				

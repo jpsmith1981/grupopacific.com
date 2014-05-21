@@ -1,4 +1,4 @@
-<? include 'includes/grupo_declare.php'; ?>
+<?php include 'includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -24,7 +24,7 @@
 </head>
 <body>
 	<header>
-		<? include 'includes/grupo_header.php'; ?>
+		<?php include 'includes/grupo_header.php'; ?>
 	</header>
 	
 	
@@ -35,8 +35,8 @@
 	</section>
 	
     <div id="spnCloudHolder">
-	<? include 'includes/populateslider.php'; ?>
-	<? include 'includes/populateslider.php'; ?>
+	<?php include 'includes/populateslider.php'; ?>
+	<?php include 'includes/populateslider.php'; ?>
 		
    </div>
 </body>

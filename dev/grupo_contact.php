@@ -1,4 +1,4 @@
-<? include 'includes/grupo_declare.php'; ?>
+<?php include 'includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,7 @@
 </head>
 <body>
 	<header>
-		<? include 'includes/grupo_header.php'; ?>
+		<?php include 'includes/grupo_header.php'; ?>
 	</header>
 	
 	
@@ -56,7 +56,7 @@
 	</section>
     
     <footer>
-		<? include 'includes/grupo_footer.php'; ?>
+		<?php include 'includes/grupo_footer.php'; ?>
 	</footer>
 
    

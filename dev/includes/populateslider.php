@@ -1,4 +1,4 @@
-                <? 
+                <?php
 
 				$projectssql = mysql_query("select ProjectID, ProjectLocation from Grupo_Project_Index ORDER BY RAND()");
 
@@ -10,7 +10,7 @@
 
 						$ProjectLocation = $pic[1];
 
-						$sql = "select imgLocation 
+						$sql = "select imgLocation
 
 							from Grupo_Project_MainPic 
 
@@ -36,8 +36,8 @@
 
 							LIMIT 1";
 
-						$projectPicture = mysql_query("$sql");
-						die($sql);
+						$projectPicture = mysql_query($sql);
+
 						while ($picLoc = mysql_fetch_array($projectPicture))
 
 							{
@@ -54,7 +54,7 @@
 
                <div class="cloud">
 
-               		<a href="projects/projectpicker.php?project=<?=$ProjectID;?>"><img src="<?=$colorThumb;?>" onmouseover="this.src='<?=$bwThumb;?>';Stop_Animate();" onmouseout="this.src='<?=$colorThumb;?>';Start_Animate();" alt="Project" /></a>
+               		<a href="projects/projectpicker.php?project=<?php echo $ProjectID;?>"><img src="<?php echo $colorThumb;?>" onmouseover="this.src='<?php echo $bwThumb;?>';Stop_Animate();" onmouseout="this.src='<?php echo $colorThumb;?>';Start_Animate();" alt="Project" /></a>
 
 			
 
@@ -62,7 +62,7 @@
 
                </div>
 
-				<?
+				<?php
 
 								}
 

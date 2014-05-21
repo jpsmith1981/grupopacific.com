@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<? include '../includes/grupo_declare.php'; ?>
+<?php include '../includes/grupo_declare.php'; ?>
 
 <html>
 <head>
@@ -35,7 +35,7 @@
 </head>
 <body>
 	<header>
-		<? include '../includes/grupo_header.php'; ?>
+		<?php include '../includes/grupo_header.php'; ?>
 	</header>
 	
 	
@@ -50,7 +50,7 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-			<? 
+			<?php 
 				$projectssql = mysql_query("select ProjectID from Grupo_Project");
 				while ($pic = mysql_fetch_array($projectssql))
 					{
@@ -60,8 +60,8 @@
 							$imgLoc = $picLoc[0];
 					
 				?>
-                $("#spnCloudHolder").append("<div class=\"cloud\"><img src=\"../includes/imagebw.php?pic=../<?=$imgLoc;?>&ht=180&wd=215\"  /></div>");
-                <?
+                $("#spnCloudHolder").append("<div class=\"cloud\"><img src=\"../includes/imagebw.php?pic=../<?php echo $imgLoc;?>&ht=180&wd=215\"  /></div>");
+                <?php
 				}
 				?>
             

@@ -1,4 +1,4 @@
-<? include '../../includes/grupo_declare.php'; ?>
+<?php include '../../includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -188,24 +188,22 @@ $(function() {
 </head>
 <body>
 	<header>
-		<? include '../../includes/grupo_header.php'; ?>
+		<?php include '../../includes/grupo_header.php'; ?>
 	</header>
 	
-	<? $project = 12//$_GET['project'];?>
+	<?php $project = 12//$_GET['project'];?>
 	<section class="content-container">
 		<div class="content-area">
 			<div class="project_contentArea">
 				<div id=slideshow>
-				<?
-				$projectPicture = mysql_query("select imgLocation from Grupo_ProjectPic where ProjectID = $project");
+				<?php 				$projectPicture = mysql_query("select imgLocation from Grupo_ProjectPic where ProjectID = $project");
 				$counter = 0;	
 					while ($picLoc = mysql_fetch_array($projectPicture))
 					{
 					$imgLoc = $picLoc[0];
 				?>
-					<img src="../../includes/thumbnail.php?pic=../projects<?=$imgLoc;?>&ht=350&wd=466" alt="" class="<? if($counter==0)echo 'active';?>"  />
-				<?
-				$counter++;
+					<img src="../../includes/thumbnail.php?pic=../projects<?php echo $imgLoc;?>&ht=350&wd=466" alt="" class="<?php if($counter==0)echo 'active';?>"  />
+				<?php 				$counter++;
 				}
 				?>
 							
@@ -235,7 +233,7 @@ $(function() {
 					</div>
 					<div class="label">Corporate Office </div>
 				</div>
-				<? $projectInfo = mysql_query("select ProjectTitle,ProjectCategory,ProjectDescription from Grupo_Project where ProjectID = $project");
+				<?php $projectInfo = mysql_query("select ProjectTitle,ProjectCategory,ProjectDescription from Grupo_Project where ProjectID = $project");
 					while ($picInfo = mysql_fetch_array($projectInfo))
 					{
 						$projTitle = $picInfo[0];
@@ -246,8 +244,8 @@ $(function() {
 				
 				<ul class="breadcrumb">
 					<li>Portfolio&gt;</li>
-					<li><?=$projCat;?>&gt;</li>
-					<li><a href="project.php"><?=$projTitle;?></a></li>
+					<li><?php echo $projCat;?>&gt;</li>
+					<li><a href="project.php"><?php echo $projTitle;?></a></li>
 				</ul>
 			</div>
 		</div>

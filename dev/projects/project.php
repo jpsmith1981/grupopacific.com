@@ -1,4 +1,4 @@
-<? include '../includes/grupo_declare.php'; ?>
+<?php include '../includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 
@@ -128,7 +128,7 @@
 </head>
 <body>
 	<header>
-		<? include '../includes/grupo_header.php'; ?>
+		<?php include '../includes/grupo_header.php'; ?>
 	</header>
 
 	
@@ -137,12 +137,12 @@
 		<div class="content-area">
 			<div class="project_contentArea">
 				
-				<? $project = $_GET['project'];
+				<?php $project = $_GET['project'];
 				if($project){?>
                 
                 
                 
-				<? 
+				<?php
 	
 				$projectInfo = mysql_query("select ProjectTitle,ProjectCategory,ProjectLocation from Grupo_Project_Index where ProjectID = $project");
 					while ($projInfo = mysql_fetch_array($projectInfo))
@@ -161,15 +161,15 @@
 				else
 				echo '<div class="mainImage">';
 				?>
-				<?
+				<?php
 				$projectPicture = mysql_query("select imgLocation from Grupo_Project_MainPic where ProjectID = $project");
 				$counter = 0;	
 					while ($picLoc = mysql_fetch_array($projectPicture))
 					{
 					$imgLoc = $projLocation.$picLoc[0];
 				?>
-					<div><img src="../includes/thumbnail.php?pic=../<?=$imgLoc;?>&amp;ht=367&amp;wd=496" alt=""></div>
-				<?
+					<div><img src="../includes/thumbnail.php?pic=../<?php echo $imgLoc;?>&amp;ht=367&amp;wd=496" alt=""></div>
+				<?php
 				$counter++;
 				}
 				?>
@@ -180,7 +180,7 @@
 			
 				<div class="media">
 					
-					<?
+					<?php
 					
 						$subProjectInfo = mysql_query("select SubProjectName, subProjectID from Grupo_SubProject where ProjectID = $project");
 						while ($subProjectData = mysql_fetch_array($subProjectInfo))
@@ -195,12 +195,12 @@
 								}
 					?>
 							<div class="smMediaButton left">
-								<a href="project.php?sp=<?=$subProjectID;?>">
-								<img src="../includes/thumbcrop.php?pic=../<?=$SubProjectImageLoc;?>&amp;ht=140&wd=212" />
+								<a href="project.php?sp=<?php echo $subProjectID;?>">
+								<img src="../includes/thumbcrop.php?pic=../<?php echo $SubProjectImageLoc;?>&amp;ht=140&wd=212" />
 								</a>
-								<div class="label"><?=$SubProjectName;?></div>
+								<div class="label"><?php echo $SubProjectName;?></div>
 							</div>
-					<?
+					<?php
 							
 							}
 					?>
@@ -208,12 +208,12 @@
 					
 					
 				</div>
-				<? }?>
-				<? $subProject = $_GET['sp'];
+				<?php }?>
+				<?php $subProject = $_GET['sp'];
 				
 				if($subProject){?>
                 
-                <?
+                <?php
                 $total = mysql_query("SELECT COUNT(*) from Grupo_Project_Subproject_Media where SubProjectID = $subProject");
 		
 				$totalRows = mysql_fetch_array($total);
@@ -223,7 +223,7 @@
 				else
 				echo '<div class="mainImage">';
 				?>
-					<?
+					<?php
 						$counter = 0;
 						$subProjectInfo = mysql_query("select SubProjectName, ProjectID, subProjectDescription from Grupo_SubProject where subProjectID = $subProject");
 						while ($subProjectData = mysql_fetch_array($subProjectInfo))
@@ -251,8 +251,8 @@
 								
 								
 							?>
-						<div><a class='show-panel'><img src="../includes/thumbnail.php?pic=../<?=$SubProjectImageLoc;?>&amp;ht=367&amp;wd=486" alt="../<?=$SubProjectImageLoc;?>"  /></a></div>
-					<? $counter++;
+						<div><a class='show-panel'><img src="../includes/thumbnail.php?pic=../<?php echo $SubProjectImageLoc;?>&amp;ht=367&amp;wd=486" alt="../<?php echo $SubProjectImageLoc;?>"  /></a></div>
+					<?php $counter++;
 					}}
 					?>
 					
@@ -261,24 +261,24 @@
 				<div class="media">
 				<div class="subProjDescription">
 					
-				    <h4><?=$projTitle;?> <? 
+				    <h4><?php echo $projTitle;?> <?php
 					if(!($projTitle==$SubProjectName))
 					echo "- ".$SubProjectName;
 					?></h4>
-				    <p><?=$subProjectDesc;?></p>
+				    <p><?php echo $subProjectDesc;?></p>
 				
-                <? $isVid = mysql_query("select videoLink from Grupo_youTube where subProjectID = $subProject");
+                <?php $isVid = mysql_query("select videoLink from Grupo_youTube where subProjectID = $subProject");
 						while ($vidData = mysql_fetch_array($isVid))
 							{?>
 								<a class="videoBox">(click here to see a video walk-through.)</a>
 								
-								<? $vidLoc = $vidData[0]; }?>
+								<?php $vidLoc = $vidData[0]; }?>
                 
                 </div>
 				
 				
 					<h4>Related Projects:</h4>
-					<?
+					<?php
 						$subProjectInfo = mysql_query("select SubProjectName, subProjectID from Grupo_SubProject where ProjectID = $project and subProjectID != $subProject");
 						while ($subProjectData = mysql_fetch_array($subProjectInfo))
 							{
@@ -292,22 +292,22 @@
 								}
 					?>
 							<div class="subProjMediaButton left">
-								<a href="project.php?sp=<?=$subProjectID;?>">
-								<img src="../includes/thumbcrop.php?pic=../<?=$SubProjectImageLoc;?>&amp;ht=100&amp;wd=150" alt="<?=$SubProjectImageLoc;?>"/>
+								<a href="project.php?sp=<?php echo $subProjectID;?>">
+								<img src="../includes/thumbcrop.php?pic=../<?php echo $SubProjectImageLoc;?>&amp;ht=100&amp;wd=150" alt="<?php echo $SubProjectImageLoc;?>"/>
 								</a>
-								<div class="subProjLabel"><?=$SubProjectName;?></div>
+								<div class="subProjLabel"><?php echo $SubProjectName;?></div>
 							</div>
-					<?
+					<?php
 							
 							}
 					?>
                 </div>
                 
-				<? }?>
+				<?php }?>
                 
                 
                 
-                <? include '../includes/breadcrumb.php'; ?>
+                <?php include '../includes/breadcrumb.php'; ?>
 				
 				
                
@@ -316,7 +316,7 @@
 		</div>
 	</section>
     <div class="video-lightbox-panel">
-	<?= $vidLoc;?>
+	<?php echo  $vidLoc;?>
 
    	<p style="text-align:center">
         <a class="close-panel" href="#">Close this window<br/><br><span class="green">[ &nbsp;</span><span class="closeX">X</span><span class="green"> &nbsp;]</span></a>
@@ -325,10 +325,10 @@
 
 	<div class="video-lightbox"> </div>
     
-    <? include '../includes/lightbox.php'; ?>
+    <?php include '../includes/lightbox.php'; ?>
     
     <footer>
-		<? include '../includes/grupo_footer.php'; ?>
+		<?php include '../includes/grupo_footer.php'; ?>
         
 	</footer>
 <script>

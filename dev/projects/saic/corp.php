@@ -1,4 +1,4 @@
-<? include '../includes/grupo_declare.php'; ?>
+<?php include '../includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -124,10 +124,10 @@
 </head>
 <body>
 	<header>
-		<? include '../includes/grupo_header.php'; ?>
+		<?php include '../includes/grupo_header.php'; ?>
 	</header>
 	
-	<? $project = $_GET['project'];?>
+	<?php $project = $_GET['project'];?>
 	<section class="content-container">
 		<div class="content-area">
 			<div class="project_contentArea">
@@ -139,7 +139,7 @@
 				<div class="description">
 					
 				    <h4>SAIC - Corporate Offices</h4>
-				    <h3>Science Applications International Corporation, SAIC, is a leading provider of scientific, engineering, systems integration and technical services and solutions.  SAIC has campuses worldwide with more than 41,000 employees.  At multiple locations in San Diego, including their Campus Point facilities, we developed efficient layouts and organization of office spaces within the various buildings that make up SAIC ‘s sprawling campuses.  
+				    <h3>Science Applications International Corporation, SAIC, is a leading provider of scientific, engineering, systems integration and technical services and solutions.  SAIC has campuses worldwide with more than 41,000 employees.  At multiple locations in San Diego, including their Campus Point facilities, we developed efficient layouts and organization of office spaces within the various buildings that make up SAIC ï¿½s sprawling campuses.  
 For more than ten years Grupo Pacific worked with the facilities department at SAIC.  Areas of concentration included office tenant improvements, department relocations and expansions, exiting analyses, square footage assessments and developing organizational standards for their buildings and employees based on hierarchy and departments.
 </h3>
 				</div>

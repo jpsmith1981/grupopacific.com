@@ -1,4 +1,4 @@
-<? include 'includes/grupo_declare.php'; ?>
+<?php include 'includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -157,15 +157,15 @@ $(function() {
 </head>
 <body>
 	<header>
-		<? include 'includes/grupo_header.php'; ?>
+		<?php include 'includes/grupo_header.php'; ?>
 	</header>
 	
-	<? $project = $_GET['project'];?>
+	<?php $project = $_GET['project'];?>
 	<section class="content-container">
 		<div class="content-area">
         	<div class="project_contentArea">
             	<div id=slideshow>
-                	<?
+                	<?php
 			$projectInfo = mysql_query("select ProjectTitle,ProjectCategory,ProjectDescription from Grupo_Project where ProjectID = $project");
 				while ($picInfo = mysql_fetch_array($projectInfo))
 				{
@@ -180,8 +180,8 @@ $(function() {
 				{
 					$imgLoc = $picLoc[0];
 			?>
-			<img src="includes/thumbnail.php?pic=..<?=$imgLoc;?>&ht=350&wd=544" alt="" class="<? if($counter==0)echo 'active';?>"  />
-                    <?					$counter++;
+			<img src="includes/thumbnail.php?pic=..<?php echo $imgLoc;?>&ht=350&wd=544" alt="" class="<?php if($counter==0)echo 'active';?>"  />
+                    <?php					$counter++;
 						}
 					?>
 					
@@ -194,15 +194,15 @@ $(function() {
                     <div class="mediaButton"></div>
                 </div>
                 <div class="description">
-                	<? 
+                	<?php
 					?>
-                    <h1><?=$projTitle;?></h1>
-                    <h3><?=$projDes;?></h3>
+                    <h1><?php echo $projTitle;?></h1>
+                    <h3><?php echo $projDes;?></h3>
                 </div>
                 <ul class="breadcrumb">
                 	<li>Portfolio&gt;</li>
-                    <li><?=$projCat;?>&gt;</li>
-                    <li><?=$projTitle;?></li>
+                    <li><?php echo $projCat;?>&gt;</li>
+                    <li><?php echo $projTitle;?></li>
                 </ul>
             </div>
 		</div>

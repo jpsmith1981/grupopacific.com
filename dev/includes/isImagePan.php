@@ -1,4 +1,4 @@
-<?
+<?php
 $pic = $_GET['pic'];
 $size = getimagesize($pic);
 $type = $size[2];

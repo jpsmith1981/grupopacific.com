@@ -1,4 +1,4 @@
-<? include '../../includes/grupo_declare.php'; ?>
+<?php include '../../includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -173,8 +173,8 @@ $(function() {
 
 </head>
 <body>
-	<? $project = $_GET['project'];?>
-	<? $projectInfo = mysql_query("select ProjectTitle,ProjectCategory,ProjectLocation from Grupo_Project_Index where ProjectID = $project");
+	<?php $project = $_GET['project'];?>
+	<?php $projectInfo = mysql_query("select ProjectTitle,ProjectCategory,ProjectLocation from Grupo_Project_Index where ProjectID = $project");
 		while ($picInfo = mysql_fetch_array($projectInfo))
 		{
 			$projTitle = $picInfo[0];
@@ -184,7 +184,7 @@ $(function() {
 	?>
 	
 	<header>
-		<? include '../../includes/grupo_header.php'; ?>
+		<?php include '../../includes/grupo_header.php'; ?>
 	</header>
 	
 	
@@ -192,15 +192,15 @@ $(function() {
 		<div class="content-area">
 			<div class="project_contentArea">
 				<div id=slideshow>
-				<?
+				<?php
 				$projectPicture = mysql_query("select imgLocation from Grupo_Project_MainPic where ProjectID = $project");
 				$counter = 0;	
 					while ($picLoc = mysql_fetch_array($projectPicture))
 					{
 					$imgLoc = $projLoc.$picLoc[0];
 				?>
-					<img src="../../includes/thumbnail.php?pic=../<?=$imgLoc;?>&ht=350&wd=274" alt="" class="<? if($counter==0)echo 'active';?>"  />
-				<?
+					<img src="../../includes/thumbnail.php?pic=../<?php echo $imgLoc;?>&ht=350&wd=274" alt="" class="<?php if($counter==0)echo 'active';?>"  />
+				<?php
 				$counter++;
 				}
 				?>
@@ -230,8 +230,8 @@ $(function() {
 				
 				<ul class="breadcrumb">
 					<li>Portfolio&gt;</li>
-					<li><?=$projCat;?>&gt;</li>
-					<li><a href="project.php"><?=$projTitle;?></a></li>
+					<li><?php echo $projCat;?>&gt;</li>
+					<li><a href="project.php"><?php echo $projTitle;?></a></li>
 				</ul>
 			</div>
 		</div>

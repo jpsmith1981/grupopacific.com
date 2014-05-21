@@ -1,4 +1,4 @@
-<? include '../includes/grupo_declare.php'; ?>
+<?php include '../includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -111,14 +111,14 @@
 </head>
 <body>
 	<header>
-		<? include '../includes/grupo_header.php'; ?>
+		<?php include '../includes/grupo_header.php'; ?>
 	</header>
 	
-	<? $subProject = $_GET['sp'];?>
+	<?php $subProject = $_GET['sp'];?>
 	<section class="content-container">
 		<div class="content-area">
 			<div class="project_contentArea">
-				<?
+				<?php
                 $total = mysql_query("SELECT COUNT(*) from Grupo_Project_Subproject_Media where SubProjectID = $subProject");
 		
 				$totalRows = mysql_fetch_array($total);
@@ -128,7 +128,7 @@
 				else
 				echo '<div class="mainImage">';
 				?>
-					<?
+					<?php
 						$counter = 0;
 						$subProjectInfo = mysql_query("select SubProjectName, ProjectID, subProjectDescription from Grupo_SubProject where subProjectID = $subProject");
 						while ($subProjectData = mysql_fetch_array($subProjectInfo))
@@ -156,8 +156,8 @@
 								
 								
 							?>
-						<div><img src="../includes/thumbnail.php?pic=../<?=$SubProjectImageLoc;?>&ht=349&wd=580" alt="" class="<? //if($counter==0)echo 'active';?>" /></div>
-					<? $counter++;
+						<div><img src="../includes/thumbnail.php?pic=../<?php echo $SubProjectImageLoc;?>&ht=349&wd=580" alt="" class="<?php //if($counter==0)echo 'active';?>" /></div>
+					<?php $counter++;
 					}}
 					?>
 					
@@ -166,17 +166,16 @@
 				
 				<div class="description">
 					
-				    <h4><?=$projTitle;?> <? 
+				    <h4><?php echo $projTitle;?> <?php
 					if(!($projTitle==$SubProjectName))
 					echo "- ".$SubProjectName;
 					?></h4>
-				    <p><?=$subProjectDesc;?></p>
+				    <p><?php echo $subProjectDesc;?></p>
 				</div>
 				
 				<div class="media">
 					<h4>Related Projects:</h4>
-					<?
-						$subProjectInfo = mysql_query("select SubProjectName, subProjectID from Grupo_SubProject where ProjectID = $project and subProjectID != $subProject");
+					<?php 						$subProjectInfo = mysql_query("select SubProjectName, subProjectID from Grupo_SubProject where ProjectID = $project and subProjectID != $subProject");
 						while ($subProjectData = mysql_fetch_array($subProjectInfo))
 							{
 								$SubProjectName = $subProjectData[0];
@@ -189,25 +188,24 @@
 								}
 					?>
 							<div class="mediaButton left">
-								<a href="subproject.php?sp=<?=$subProjectID;?>">
-								<img src="../includes/thumbcrop.php?pic=../<?=$SubProjectImageLoc;?>&ht=80&wd=115" />
+								<a href="subproject.php?sp=<?php echo $subProjectID;?>">
+								<img src="../includes/thumbcrop.php?pic=../<?php echo $SubProjectImageLoc;?>&ht=80&wd=115" />
 								</a>
-								<div class="label"><?=$SubProjectName;?></div>
+								<div class="label"><?php echo $SubProjectName;?></div>
 							</div>
-					<?
-							
+					<?php
 							}
 					?>
 					
 				</div>
 				
-				<? include '../includes/breadcrumb.php'; ?>
+				<?php include '../includes/breadcrumb.php'; ?>
 			</div>
 		</div>
 	</section>
-     <? include '../includes/lightbox.php'; ?>
+     <?php include '../includes/lightbox.php'; ?>
     <footer>
-		<? include '../includes/grupo_footer.php'; ?>
+		<?php include '../includes/grupo_footer.php'; ?>
         
 	</footer>
 

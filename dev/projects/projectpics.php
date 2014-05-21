@@ -1,4 +1,4 @@
-<? include '../includes/grupo_declare.php'; ?>
+<?php include '../includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -128,12 +128,12 @@
 </head>
 <body>
 	<header>
-		<? include '../includes/grupo_header.php'; ?>
+		<?php include '../includes/grupo_header.php'; ?>
 	</header>
 	
-	<? $project = $_GET['project'];?>
+	<?php $project = $_GET['project'];?>
 	
-	<? 	$projectInfo = mysql_query("select ProjectTitle,ProjectCategory,ProjectLocation from Grupo_Project_Index where ProjectID = $project");
+	<?php 	$projectInfo = mysql_query("select ProjectTitle,ProjectCategory,ProjectLocation from Grupo_Project_Index where ProjectID = $project");
 		while ($projInfo = mysql_fetch_array($projectInfo))
 		{
 			$projTitle = $projInfo[0];
@@ -156,13 +156,13 @@
 				
 			<div class="left">
 				<div class="description">
-				    <h4><?=$projTitle;?></h4>
-				    <h3><?=$projDesc;?></h3>
+				    <h4><?php echo $projTitle;?></h4>
+				    <h3><?php echo $projDesc;?></h3>
 				</div>
 				
 				<div id="heroImage">
 					<div id=slideshow>
-					<?
+					<?php
 					$projectPicture = mysql_query("select Location, OtherMediaID from Grupo_Project_OtherMedia where ProjectID = $project");
 					$counter = 0;	
 						while ($picLoc = mysql_fetch_array($projectPicture))
@@ -170,8 +170,8 @@
 						$imgLoc = $projLocation.$picLoc[0];
 						$mediaID = $picLoc[1];
 					?>
-						<a class='show-panel'><img src="../includes/thumbnail.php?pic=../<?=$imgLoc;?>&ht=230&wd=588" alt="../<?=$imgLoc;?>" class="<? if($counter==0)echo 'active';?>"  /></a>
-					<?
+						<a class='show-panel'><img src="../includes/thumbnail.php?pic=../<?php echo $imgLoc;?>&ht=230&wd=588" alt="../<?php echo $imgLoc;?>" class="<?php if($counter==0)echo 'active';?>"  /></a>
+					<?php
 					
 					}
 					?>
@@ -181,11 +181,11 @@
 				</div>
 			</div>
 			<form>
-				<input type="hidden" id="info" value="<?=$imgLoc;?>"/>
+				<input type="hidden" id="info" value="<?php echo $imgLoc;?>"/>
 			</form>
 				<div class="media">
                 
-                	<?
+                	<?php
 					$otherMedia = mysql_query("select MediaTitle
 														from Grupo_Project_OtherMedia 
 														where ProjectID = $project
@@ -204,7 +204,7 @@
 														
 						?>
                         <div class="mediaGroup"><div class="btnPanel"></div>
-                        <?
+                        <?php
 						
 						while ($picLoc = mysql_fetch_array($otherPic))
 						{
@@ -212,15 +212,14 @@
 					?>
 					
 					<div class="mediaPic">
-						<div><img src="../includes/thumbnail.php?pic=../<?=$mediaLoc;?>&ht=300&wd=360"" alt="../<?=$mediaLoc;?>" /></div>
+						<div><img src="../includes/thumbnail.php?pic=../<?php echo $mediaLoc;?>&ht=300&wd=360"" alt="../<?php echo $mediaLoc;?>" /></div>
 					</div>
 					
-					<?	
+					<?php
 						}
 						?>
                         </div>
-                        <?
-						
+                        <?php
 						}
 					?>
                     
@@ -229,15 +228,15 @@
 				
 				
 				
-				<? include '../includes/breadcrumb.php'; ?>
+				<?php include '../includes/breadcrumb.php'; ?>
 			</div>
 		</div>
 	</section>
     
-     <? include '../includes/lightbox.php'; ?>
+     <?php include '../includes/lightbox.php'; ?>
      
     <footer>
-		<? include '../includes/grupo_footer.php'; ?>
+		<?php include '../includes/grupo_footer.php'; ?>
         
 	</footer>
 	

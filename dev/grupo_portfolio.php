@@ -1,4 +1,4 @@
-<? include 'includes/grupo_declare.php'; ?>
+<?php include 'includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -95,11 +95,13 @@
 </head>
 <body>
 	<header>
-    	<? include 'includes/grupo_header.php'; ?>
+    	<?php include 'includes/grupo_header.php'; ?>
 	</header>
-	<? 
-		$page = $_GET['page'];
-		if($_GET['cat']){
+	<?php
+        $whereCat = '';
+        $andCat = '';
+		$page = isset($_GET['page'])?$_GET['page']:false;
+		if(isset($_GET['cat'])){
 			$cat = "ProjectCategory = '".$_GET['cat']."' ";
 			$whereCat = "where ".$cat;
 			$andCat = "and ".$cat;
@@ -118,16 +120,17 @@
 		<div class="content-area">
 			<div class="portfolio_contentArea">
             	<div class="projectNav">
-			<? if ($page>1){?>
-			<a href="<?= $_SERVER['PHP_SELF'];?>?page=<?= $page-1;?>"><img src="images/prev.png" alt="prev" /></a>
-			<? } ?>
+			<?php if ($page>1){?>
+			<a href="<?php echo  $_SERVER['PHP_SELF'];?>?page=<?php echo  $page-1;?>"><img src="images/prev.png" alt="prev" /></a>
+			<?php } ?>
 		</div>
             	<div class="portfolio_projects">
-				<?
-				$query = $_POST['qry'];
+				<?php
+                $projectssql = '';
 				$low = ($page-1)*15;
-				if ($query)
+				if (isset($_POST['qry']))
 			   {
+                   $qry = $_POST['qry'];
 					$projectssql = mysql_query("select `ProjectID` 
 					from Grupo_Project_Description where (Grupo_Project_Description.Description like '%$query%') 					union
 					select `ProjectID`
@@ -175,33 +178,33 @@
 							$imgLoc = $picLoc[0];
 					
 				?>
-                <a href="projects/projectpicker.php?project=<?=$ProjectID;?>">
+                <a href="projects/projectpicker.php?project=<?php echo $ProjectID;?>">
                     <div class="projectLink">
-                    <img src="includes/thumbcrop.php?pic=../<?=$projectLoc.$imgLoc;?>&amp;ht=112&amp;wd=169" alt=""  />
-                    <div class="label"><?=$projectTitle;?></div>
+                    <img src="includes/thumbcrop.php?pic=../<?php echo $projectLoc.$imgLoc;?>&amp;ht=112&amp;wd=169" alt=""  />
+                    <div class="label"><?php echo $projectTitle;?></div>
                     </div>
                 </a>
-                <?
+                <?php
 				}
 				?>
 				</div>
                 <div class="projectNav">
-			<?
+			<?php
 			
 			if ($numOfProjects > ($page*15)){?>
-			<a href="<?= $_SERVER['PHP_SELF'];?>?page=<?= $page+1;?>"><img src="images/next.png" alt="next" /></a>
-			<? } ?>
+			<a href="<?php echo  $_SERVER['PHP_SELF'];?>?page=<?php echo  $page+1;?>"><img src="images/next.png" alt="next" /></a>
+			<?php } ?>
 		</div>
             <div class="clearBoth">
             <ul>
-                <li><a href="<?= $_SERVER['PHP_SELF'];?>?cat=Corporate">CORPORATE</a></li>
-                <li><a href="<?= $_SERVER['PHP_SELF'];?>?cat=Industrial">INDUSTRIAL</a></li>
-                <li><a href="<?= $_SERVER['PHP_SELF'];?>?cat=Medical">MEDICAL</a></li>
-                <li><a href="<?= $_SERVER['PHP_SELF'];?>?cat=Residential">RESIDENTIAL</a></li>
-                <li><a href="<?= $_SERVER['PHP_SELF'];?>?cat=Retail">RETAIL</a></li>
-                <li><a href="<?= $_SERVER['PHP_SELF'];?>?cat=Identity">IDENTITY</a></li>
-                <li><a href="<?= $_SERVER['PHP_SELF'];?>?cat=Hospitality">HOSPITALITY</a></li>
-                <li><a href="<?= $_SERVER['PHP_SELF'];?>?cat=Institutional">INSTITUTIONAL</a></li>
+                <li><a href="<?php echo  $_SERVER['PHP_SELF'];?>?cat=Corporate">CORPORATE</a></li>
+                <li><a href="<?php echo  $_SERVER['PHP_SELF'];?>?cat=Industrial">INDUSTRIAL</a></li>
+                <li><a href="<?php echo  $_SERVER['PHP_SELF'];?>?cat=Medical">MEDICAL</a></li>
+                <li><a href="<?php echo  $_SERVER['PHP_SELF'];?>?cat=Residential">RESIDENTIAL</a></li>
+                <li><a href="<?php echo  $_SERVER['PHP_SELF'];?>?cat=Retail">RETAIL</a></li>
+                <li><a href="<?php echo  $_SERVER['PHP_SELF'];?>?cat=Identity">IDENTITY</a></li>
+                <li><a href="<?php echo  $_SERVER['PHP_SELF'];?>?cat=Hospitality">HOSPITALITY</a></li>
+                <li><a href="<?php echo  $_SERVER['PHP_SELF'];?>?cat=Institutional">INSTITUTIONAL</a></li>
             </ul>
             </div>	
             
@@ -210,7 +213,7 @@
 	</section>
     
     <footer>
-		<? include 'includes/grupo_footer.php'; ?>
+		<?php include 'includes/grupo_footer.php'; ?>
 	</footer>
 
 </body>

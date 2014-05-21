@@ -1,4 +1,5 @@
-<?
+<?php
+ob_start();
 include '../includes/grupo_declare.php';
 session_start();
 
@@ -14,8 +15,6 @@ while ($externalPic = mysql_fetch_array($isExternalPics))
 
 if($externalPicId)
 {
-
-
 	$isSubProjects = mysql_query("select subProjectID from Grupo_SubProject where ProjectID = $projectId limit 1");
 		while ($subProj = mysql_fetch_array($isSubProjects))
 		{
@@ -26,9 +25,7 @@ if($externalPicId)
 	{
 		header("Location: project.php?project=$projectId");
 	}
-	
-	
-	
+
 	else
 	{
 		$projectLoc = mysql_query("select ProjectLocation from Grupo_Project_Index where ProjectID = $projectId limit 1");
@@ -50,5 +47,5 @@ else
 {
 	header("Location: projectpics.php?project=$projectId");
 }
-	
+ob_flush();
 	?>

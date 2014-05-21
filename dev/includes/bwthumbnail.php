@@ -1,4 +1,4 @@
-<?
+<?php
 $pic = $_GET['pic'];
 $max_height = $_GET['ht'];
 $max_width = $_GET['wd'];

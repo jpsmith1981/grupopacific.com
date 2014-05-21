@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 $_SESSION['layOut'] += 1;
 $projectId = $_GET['project'];
@@ -8,8 +8,8 @@ $projectPicture = mysql_query("select subProjectID from Grupo_SubProject where P
 					{
 					$imgLoc = $projLocation.$picLoc[0];
 				?>
-					<img src="../includes/thumbnail.php?pic=../<?=$imgLoc;?>&ht=350&wd=466" alt="" class="<? if($counter==0)echo 'active';?>"  />
-				<?
+					<img src="../includes/thumbnail.php?pic=../<?php echo $imgLoc;?>&ht=350&wd=466" alt="" class="<?php if($counter==0)echo 'active';?>"  />
+				<?php
 				$counter++;
 				}
 				?>

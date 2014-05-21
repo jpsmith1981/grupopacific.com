@@ -1,9 +1,9 @@
-<?
+<?php
 //connect to database
- $c_username = "jpsmith1981";
- $c_password = "Mander1ne";
- $c_host = "mysql.thecodemonkey.biz";
- $c_database = "thecodemonkey";
+ $c_username = "root";
+ $c_password = "root";
+ $c_host = "127.0.0.1";
+ $c_database = "grupopacific";
 
     // Connect.
     $connection = mysql_connect($c_host, $c_username, $c_password)
@@ -21,5 +21,7 @@ $empPicDir = "images/grupo_employees/";
 
 
 //root
-$site_root = "http://grupo.joshuapaulsmith.net/dev/";
+//$site_root = "http://grupo.joshuapaulsmith.net/dev/";
+$site_root = "http://localhost:8888/grupopacific.com/dev/";
+
 ?>

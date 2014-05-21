@@ -1,4 +1,4 @@
-<? include '../includes/grupo_declare.php'; ?>
+<?php include '../includes/grupo_declare.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -124,10 +124,10 @@
 </head>
 <body>
 	<header>
-		<? include '../includes/grupo_header.php'; ?>
+		<?php include '../includes/grupo_header.php'; ?>
 	</header>
 	
-	<? $project = $_GET['project'];?>
+	<?php $project = $_GET['project'];?>
 	<section class="content-container">
 		<div class="content-area">
 			<div class="project_contentArea">
@@ -139,7 +139,7 @@
 				<div class="description">
 					
 				    <h4>SAIC - Main Lobby Remodel</h4>
-				    <h3>At Science Applications International Corporation, SAIC, Campus Point location in San Diego, a new main lobby was desired that would act as a secure centralized “check-in” location to serve as a central hub for the entire campus.</h3>
+				    <h3>At Science Applications International Corporation, SAIC, Campus Point location in San Diego, a new main lobby was desired that would act as a secure centralized ï¿½check-inï¿½ location to serve as a central hub for the entire campus.</h3>
 				</div>
 				<div class="media">
 					<h4>See More:</h4>

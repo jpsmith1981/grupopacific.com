@@ -14,7 +14,7 @@
 </head>
 <body>
 	<header>
-		<? include 'http://www.thecodemonkey.biz/dev/grupo/site/includes/grupo_header.php'; ?>
+		<?php include 'http://www.thecodemonkey.biz/dev/grupo/site/includes/grupo_header.php'; ?>
 	</header>
 	
 	

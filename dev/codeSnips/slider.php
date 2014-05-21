@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<? include '../includes/grupo_declare.php'; ?>
+<?php include '../includes/grupo_declare.php'; ?>
 
 <html>
 <head>
@@ -42,7 +42,7 @@
 </head>
 <body>
 	<header>
-		<? include '../includes/grupo_header.php'; ?>
+		<?php include '../includes/grupo_header.php'; ?>
 	</header>
 	
 	
@@ -57,7 +57,7 @@
     <span id="spnCloudHolder"></span>
 
    
-			<? 
+			<?php 
 				$projectssql = mysql_query("select ProjectID from Grupo_Project");
 				while ($pic = mysql_fetch_array($projectssql))
 					{
@@ -70,10 +70,10 @@
 					
 				?>
                <div class="cloud">
-               		<img src="<?=$bwThumb;?>" onmouseover="this.src='<?=$colorThumb;?>';Stop_Animate();" onmouseout="this.src='<?=$bwThumb;?>';Start_Animate();" alt="Project" />
+               		<img src="<?php echo $bwThumb;?>" onmouseover="this.src='<?php echo $colorThumb;?>';Stop_Animate();" onmouseout="this.src='<?php echo $bwThumb;?>';Start_Animate();" alt="Project" />
                     
                </div>
-                <?
+                <?php
 				}
 				?>
    </div>     

@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<?	include 'includes/grupo_declare.php';
+<?php	include 'includes/grupo_declare.php';
 	$searchString = $_GET['qry'];
 	
 				$projectssql = mysql_query("SELECT *
@@ -46,7 +46,7 @@ LIMIT 0 , 30");
 </head>
 <body>
 	<header>
-		<? include 'includes/grupo_header.php'; ?>
+		<?php include 'includes/grupo_header.php'; ?>
 	</header>
 	
 	
